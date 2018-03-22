@@ -1,6 +1,9 @@
 class BowlingGame(object):
+    def __init__(self):
+        self._score = 0
+
     def roll(self, pin):
-        print('yo')
+        self._score = pin
 
     def score(self):
-        return 0
+        return self._score
