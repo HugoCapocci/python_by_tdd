@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:2.7
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: sudo pip install --upgrade pip
+      - run: sudo pip install nose
+      - run:
+          name: Launch Unit Tests
+          command: |
+            nosetests
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
